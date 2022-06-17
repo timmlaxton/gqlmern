@@ -142,11 +142,11 @@ const mutation = new GraphQLObjectType({
               naew: { value: 'Not Started'},
               progress: { value: 'In Progress'},
               completed: {value: 'Completed'}
-            }
-          })
-        }
+            },
+          }),
+        },
       },
-      resove(parent, args) {
+      resolve(parent, args) {
         return Project.findByIdAndUpdate(
           args.id,
           {
