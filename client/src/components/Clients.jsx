@@ -1,21 +1,14 @@
 import {gql, useQuery} from '@apollo/client'
 import ClientRow from './ClientRow'
+import Spinner from './Spinner'
+import { GET_CLIENTS } from '../queries/ClientQueries'
 
-const GET_CLIENTS = gql`
-  query getClients {
-    clients {
-      id
-    name
-    email
-    phone
-    }
-  }
-`
+
 
 const Clients = () => {
   const {loading, error, data} = useQuery(GET_CLIENTS)
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <p><Spinner/></p>
   if (error) return <p>Bugger...</p>
 
 
